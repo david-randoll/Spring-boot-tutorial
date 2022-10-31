@@ -1,0 +1,63 @@
+server:
+  port: 8082
+
+spring:
+  profiles:
+    active: qa
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: admin
+    url: jdbc:mysql://localhost:3306/dcbapp?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+welcome:
+  message: Welcome to David Dev API
+
+---
+
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: admin
+    url: jdbc:mysql://localhost:3306/dcbapp-qa?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+welcome:
+  message: Welcome to David QA API
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: admin
+    url: jdbc:mysql://localhost:3306/dcbapp-prod?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
+welcome:
+  message: Welcome to David Prod API
